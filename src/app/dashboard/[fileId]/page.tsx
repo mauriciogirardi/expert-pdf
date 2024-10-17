@@ -1,4 +1,4 @@
-import { ChatWrapper } from "@/components/chat-wrapper";
+import { ChatWrapper } from "@/components/chat/chat-wrapper";
 import { MaxWithWrapper } from "@/components/max-with-wrapper";
 import { PdfRenderer } from "@/components/pdf-renderer";
 import { db } from "@/db";
@@ -26,17 +26,13 @@ export default async function DashboardParam({ params }: DashboardParamProps) {
 
   return (
     <MaxWithWrapper>
-      <div className="flex-1 justify-between flex flex-col h-[calc(100vh-3.5rem)]">
-        <div className="mx-auto w-full max-w-8xl grow lg:flex xl:px-2">
-          <div className="flex-1 xl:flex">
-            <div className="px-4 py-6 sm:px-6 lg:pl-8 xl:flex-1 xl:pl-6">
-              <PdfRenderer url={file.url} />
-            </div>
-          </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-6">
+        <div className="py-6 w-full lg:col-span-2">
+          <PdfRenderer url={file.url} />
+        </div>
 
-          <div className="shrink-0 py-6 px-4 flex-[0.75] border-t border-gray-200 lg:w-96 lg:border-l lg:border-t-0">
-            <ChatWrapper />
-          </div>
+        <div className="shrink-0 py-6 w-full ">
+          <ChatWrapper fileId={file.id} />
         </div>
       </div>
     </MaxWithWrapper>

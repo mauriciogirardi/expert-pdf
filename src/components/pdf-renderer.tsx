@@ -41,14 +41,14 @@ export function PdfRenderer({ url }: PdfRendererProps) {
         onPage={setCurrPage}
       />
 
-      <div className="w-full bg-white border border-gray-100 rounded-md shadow flex flex-col items-center py-4">
+      <div className="w-full bg-white border transition-all border-gray-100 rounded-md shadow flex flex-col items-center py-4">
         <div className="flex-1 w-full max-h-screen ">
-          <SimpleBar autoHide={false} className="max-h-[calc(100vh-12rem)]">
+          <SimpleBar autoHide={false} className="max-h-[calc(100vh-13.5rem)]">
             <div ref={ref}>
               <Document
                 file={url}
                 loading={
-                  <div className="flex justify-center">
+                  <div className="flex justify-center items-center h-[calc(100vh-6.9rem)]">
                     <Loader2 className="my-24 size-6 animate-spin text-blue-500" />
                   </div>
                 }
