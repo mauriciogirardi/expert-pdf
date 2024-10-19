@@ -7,3 +7,8 @@
 </br>
 
 **PDFExpert** allows you to have conversations with any **PDF** document. Simply upload your file and start asking questions right away.
+
+
+- prisma
+  - pnpm dlx prisma db push
+  - pnpm dlx prisma generate

@@ -6,11 +6,19 @@
     "clsx",
     "hookform",
     "kinde",
+    "langchain",
     "nextjs",
+    "OPENAI",
+    "pinecode",
+    "PINECOME",
     "simplebar",
-    "trpc"
+    "trpc",
+    "uploadthing"
   ],
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

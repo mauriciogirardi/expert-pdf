@@ -15,7 +15,8 @@ model User {
   stripePriceId           String?   @map("stripe_price_id")
   stripeCurrentPreriodEnd DateTime? @map("stripe_current_period_end")
 
-  files File[]
+  files    File[]
+  messages Message[]
 
   @@map("users")
 }
@@ -39,5 +40,23 @@ model File {
   user   User?   @relation(fields: [userId], references: [id])
   userId String? @map("user_id")
 
+  messages Message[]
+
   @@map("files")
+}
+
+model Message {
+  id            String   @id @default(uuid())
+  text          String   @db.Text()
+  isUserMessage Boolean  @map("is_user_message")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String? @map("user_id")
+
+  file   File?   @relation(fields: [fileId], references: [id])
+  fileId String? @map("file_id")
+
+  @@map("messages")
 }
